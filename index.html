@@ -5,79 +5,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROJETO DE SITE</title>
     <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: white;
-            color: #111;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            min-height: 100vh;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-image: linear-gradient(rgba(13, 20, 35, 0.85), rgba(13, 20, 35, 0.85)),
+                url("https://i.pinimg.com/736x/0f/8d/9d/0f8d9d9eee0b90cbc2b3819accf26241.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         body.dark {
-            background-color: #111;
-            color: #f4f4f4;
+            background-image: linear-gradient(rgba(13, 20, 35, 0.85), rgba(13, 20, 35, 0.85)),
+                url("https://i.pinimg.com/736x/0f/8d/9d/0f8d9d9eee0b90cbc2b3819accf26241.jpg");
+            color: #e2e8f0;
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            width: 100%;
+            max-width: 760px;
+            background: rgba(13, 20, 35, 0.92);
+            border-radius: 28px;
+            box-shadow: 0 28px 80px rgba(0, 0, 0, 0.24);
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            padding: 36px 34px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+        }
+
+        h1,
+        h2 {
+            margin: 0;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 2.6vw, 3rem);
+            letter-spacing: -0.04em;
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 14px;
+        }
+
+        p {
+            max-width: 720px;
+            margin: 0 auto 18px;
+            line-height: 1.75;
+            color: inherit;
+        }
+
+        .hero {
+            margin-bottom: 28px;
+        }
+
+        img {
+            width: 100%;
+            max-height: 380px;
+            object-fit: cover;
+            border-radius: 22px;
+            display: block;
+            margin: 0 auto 30px;
+            box-shadow: 0 22px 50px rgba(15, 23, 42, 0.14);
+        }
+
+        .button-group {
+            display: inline-flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 24px;
         }
 
         button {
-            padding: 10px 18px;
+            padding: 14px 28px;
             border: none;
-            border-radius: 6px;
+            border-radius: 999px;
             background-color: #0b6cf5;
             color: white;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 1rem;
+            font-weight: 600;
             transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-            box-shadow: 0 6px 16px rgba(11, 108, 245, 0.25);
+            box-shadow: 0 16px 30px rgba(11, 108, 245, 0.28);
+        }
+
+        .button-secondary {
+            background-color: transparent;
+            border: 2px solid #0b6cf5;
+            color: #0b6cf5;
+        }
+
+        .button-secondary:hover {
+            background-color: rgba(11, 108, 245, 0.1);
+            color: #0b6cf5;
         }
 
         button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 24px rgba(11, 108, 245, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 22px 36px rgba(11, 108, 245, 0.34);
             background-color: #0953c1;
         }
 
         button:active {
             transform: translateY(0);
+            box-shadow: 0 10px 18px rgba(11, 108, 245, 0.22);
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            display: block;
-            margin: 20px 0;
+        @media (max-width: 620px) {
+            .container {
+                padding: 28px 20px;
+            }
+
+            img {
+                max-height: 260px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Conheça um pouco do meu trabalho</h1>
-        <p>O mundo é seu, busque conquistar!</p>
-        <img src="https://i.pinimg.com/736x/0f/8d/9d/0f8d9d9eee0b90cbc2b3819accf26241.jpg" alt="Imagem inspiradora">
-        <h2>Viva hoje e conquiste!</h2>
-        <button id="themeButton">Tema Escuro</button>
+        <div class="hero">
+            <h1>Conheça um pouco do meu trabalho</h1>
+            <p>O mundo é seu, busque conquistar! Sigo estudando para me tornar um excelente profissional.</p>
+        </div>
+
+        <div class="content">
+            <h2>Viva hoje e conquiste!</h2>
+            <p>Me chamo Joaquim Andrade Evangelista, futuro programador e desenvolvedor Web.</p>
+            <p>Tenho 17 anos e sigo na minha carreira estudando para alcançar meus objetivos.</p>
+            <div class="button-group">
+                <button class="button-secondary" onclick="window.location.href='mailto:joaquim_And13@hotmail.com'">Email</button>
+            </div>
+        </div>
     </div>
 
-    <section class="container">
-        <h1>Me chamo Joaquim Andrade Evangelista</h1>
-        <p>Futuro programador e desenvolvedor Web.</p>
-        <p>Tenho 17 anos e sigo na minha carreira estudando para alcançar meus objetivos.</p>
-    </section>
-
-    <script>
-        const button = document.getElementById('themeButton');
-        button.addEventListener('click', () => {
-            document.body.classList.toggle('dark');
-            const themeIsDark = document.body.classList.contains('dark');
-            button.textContent = themeIsDark ? 'Tema Claro' : 'Tema Escuro';
-            button.classList.add('fx-activate');
-        });
-    </script>
 </body>
 </html>
